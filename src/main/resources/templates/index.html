@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+
+<div class="container">
+
+    <div class="">
+        <div >
+            <h4>Employees List</h4>
+            <a th:href="@{/add-employee}" class="btn btn-primary">Add New Employee</a>
+            <table border="1" class="table table-stripped table-responsive-md">
+                <thead class="bg-primary">
+                <tr>
+                    <th>Employee First Name</th>
+                    <th>Employee Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr th:each="employee :${employees}">
+                    <td th:text="${employee.firstName}"></td>
+                    <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.email}"></td>
+
+                    <td>
+
+                        <a th:href="@{/update-employee-form/{id}(id=${employee.id})}" class="btn btn-primary">Update Employee</a>
+                        <a th:href="@{/delete-employee/{id}(id=${employee.id})}" class="btn btn-danger">Delete Employee</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

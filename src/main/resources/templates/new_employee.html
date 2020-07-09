@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+
+<div class="container">
+
+    <div class="col-6">
+        <div >
+            <h4>Add New  Employee</h4>
+
+
+            <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" th:field ="*{firstName}" placeholder="First name" class="form-control">
+                    <small class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" > First Name Error</small>
+                </div>
+
+
+              <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" th:field ="*{lastName}" placeholder="Last name" class="form-control">
+                  <small class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" > Last Name Error</small>
+              </div>
+
+              <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" th:field ="*{email}" placeholder="emial" class="form-control">
+                  <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" > Email Error</small>
+              </div>
+
+                <hr/>
+                <button type="submit" class="btn btn-primary">Add New Employee</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
